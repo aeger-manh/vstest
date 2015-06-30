@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soap.sforce.com/schemas/class/psaWebServiceFacade" xmlns:psaWorkdayPTO="http://soap.sforce.com/schemas/class/psaWorkdayPTO" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:psaWorkDayWSResponse="http://soap.sforce.com/schemas/class/psaWorkDayWSResponse" xmlns:psaWorkdayResource="http://soap.sforce.com/schemas/class/psaWorkdayResource" targetNamespace="http://soap.sforce.com/schemas/class/psaWebServiceFacade" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://soap.sforce.com/schemas/class/psaWorkDayWSResponse">
+      <xsd:complexType name="psaWorkDayWSResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="errorList" nillable="true" type="psaWorkDayWSResponse:Error" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="successList" nillable="true" type="psaWorkDayWSResponse:Success" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Error">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="errorMessage" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="referenceId" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Success">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="successMessage" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="referenceId" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://soap.sforce.com/schemas/class/psaWorkdayPTO">
+      <xsd:complexType name="psaWorkdayPTO">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="dayOfWeek" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="hours" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="timeOffDate" nillable="true" type="xsd:date" />
+          <xsd:element minOccurs="0" name="workDayPTOId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="workdDayEmployeeId" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://soap.sforce.com/schemas/class/psaWorkdayResource">
+      <xsd:complexType name="psaWorkdayResource">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="careerInterests" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="citizenship" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="city" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="company" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="contingentWorkerType" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="continuousServiceDate" nillable="true" type="xsd:date" />
+          <xsd:element minOccurs="0" name="costCenter" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="country" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="currencyISOCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="departmentOwnerId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="email" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="endDate" nillable="true" type="xsd:date" />
+          <xsd:element minOccurs="0" name="firstName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="groupLeadAltManagerId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isContingentWorker" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="lastName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="level" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="location" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="managerId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="mobile" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="phone" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="resourceRole" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="resourceStatus" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="startDate" nillable="true" type="xsd:date" />
+          <xsd:element minOccurs="0" name="state" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="stateWitholding" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="street" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="techCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tenure" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="timeType" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="title" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="weeklyScheduledHours" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="workdDayEmployeeId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="workerType" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="zip" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://soap.sforce.com/schemas/class/psaWebServiceFacade">
+      <xsd:import namespace="http://soap.sforce.com/schemas/class/psaWorkdayResource" />
+      <xsd:import namespace="http://soap.sforce.com/schemas/class/psaWorkDayWSResponse" />
+      <xsd:import namespace="http://soap.sforce.com/schemas/class/psaWorkdayPTO" />
+      <xsd:element name="AllowFieldTruncationHeader">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="allowFieldTruncation" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CallOptions">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="client" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DebuggingHeader">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="categories" type="tns:LogInfo" />
+            <xsd:element name="debugLevel" type="tns:LogType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="LogInfo">
+        <xsd:sequence>
+          <xsd:element name="category" type="tns:LogCategory" />
+          <xsd:element name="level" type="tns:LogCategoryLevel" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="LogCategory">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Db" />
+          <xsd:enumeration value="Workflow" />
+          <xsd:enumeration value="Validation" />
+          <xsd:enumeration value="Callout" />
+          <xsd:enumeration value="Apex_code" />
+          <xsd:enumeration value="Apex_profiling" />
+          <xsd:enumeration value="Visualforce" />
+          <xsd:enumeration value="System" />
+          <xsd:enumeration value="All" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogCategoryLevel">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Internal" />
+          <xsd:enumeration value="Finest" />
+          <xsd:enumeration value="Finer" />
+          <xsd:enumeration value="Fine" />
+          <xsd:enumeration value="Debug" />
+          <xsd:enumeration value="Info" />
+          <xsd:enumeration value="Warn" />
+          <xsd:enumeration value="Error" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="None" />
+          <xsd:enumeration value="Debugonly" />
+          <xsd:enumeration value="Db" />
+          <xsd:enumeration value="Profiling" />
+          <xsd:enumeration value="Callout" />
+          <xsd:enumeration value="Detail" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="DebuggingInfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="debugLog" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SessionHeader">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="sessionId" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:simpleType name="ID">
+        <xsd:restriction base="xsd:string">
+          <xsd:length value="18" />
+          <xsd:pattern value="[a-zA-Z0-9]{18}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="upsertWorkdayPTO">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="workdayPTOs" nillable="true" type="psaWorkdayPTO:psaWorkdayPTO" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="upsertWorkdayPTOResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="psaWorkDayWSResponse:psaWorkDayWSResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="upsertWorkdayResource">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="resources" nillable="true" type="psaWorkdayResource:psaWorkdayResource" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="upsertWorkdayResourceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="psaWorkDayWSResponse:psaWorkDayWSResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name="Header">
+    <part name="AllowFieldTruncationHeader" element="tns:AllowFieldTruncationHeader" />
+    <part name="CallOptions" element="tns:CallOptions" />
+    <part name="DebuggingHeader" element="tns:DebuggingHeader" />
+    <part name="DebuggingInfo" element="tns:DebuggingInfo" />
+    <part name="SessionHeader" element="tns:SessionHeader" />
+  </message>
+  <message name="upsertWorkdayPTORequest">
+    <part name="parameters" element="tns:upsertWorkdayPTO" />
+  </message>
+  <message name="upsertWorkdayPTOResponse">
+    <part name="parameters" element="tns:upsertWorkdayPTOResponse" />
+  </message>
+  <message name="upsertWorkdayResourceRequest">
+    <part name="parameters" element="tns:upsertWorkdayResource" />
+  </message>
+  <message name="upsertWorkdayResourceResponse">
+    <part name="parameters" element="tns:upsertWorkdayResourceResponse" />
+  </message>
+  <portType name="psaWebServiceFacadePortType">
+    <operation name="upsertWorkdayPTO">
+      <input message="tns:upsertWorkdayPTORequest" />
+      <output message="tns:upsertWorkdayPTOResponse" />
+    </operation>
+    <operation name="upsertWorkdayResource">
+      <input message="tns:upsertWorkdayResourceRequest" />
+      <output message="tns:upsertWorkdayResourceResponse" />
+    </operation>
+  </portType>
+  <binding name="psaWebServiceFacadeBinding" type="tns:psaWebServiceFacadePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="upsertWorkdayPTO">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:header message="tns:Header" part="DebuggingHeader" use="literal" />
+        <soap:header message="tns:Header" part="AllowFieldTruncationHeader" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </input>
+      <output>
+        <soap:header message="tns:Header" part="DebuggingInfo" use="literal" />
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="upsertWorkdayResource">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:header message="tns:Header" part="DebuggingHeader" use="literal" />
+        <soap:header message="tns:Header" part="AllowFieldTruncationHeader" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </input>
+      <output>
+        <soap:header message="tns:Header" part="DebuggingInfo" use="literal" />
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="psaWebServiceFacadeService">
+    <documentation>
+    </documentation>
+    <port name="psaWebServiceFacade" binding="tns:psaWebServiceFacadeBinding">
+      <soap:address location="https://cs13.salesforce.com/services/Soap/class/psaWebServiceFacade" />
+    </port>
+  </service>
+</definitions>

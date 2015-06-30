@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:psaConcurExpenseReport="http://soap.sforce.com/schemas/class/psaConcurExpenseReport" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soap.sforce.com/schemas/class/psaExpenseWSFacade" xmlns:psaExpenseWSResponse="http://soap.sforce.com/schemas/class/psaExpenseWSResponse" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://soap.sforce.com/schemas/class/psaExpenseWSFacade" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://soap.sforce.com/schemas/class/psaConcurExpenseReport">
+      <xsd:complexType name="psaConcurExpenseReport">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="approverId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="billable" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="concurExtractDate" nillable="true" type="xsd:date" />
+          <xsd:element minOccurs="0" name="concurReportKey" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="dateReimbursed" nillable="true" type="xsd:date" />
+          <xsd:element minOccurs="0" name="dateSubmitted" nillable="true" type="xsd:date" />
+          <xsd:element minOccurs="0" name="description" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="expenses" nillable="true" type="psaConcurExpenseReport:psaConcurExpense" />
+          <xsd:element minOccurs="0" name="projectCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="reportName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="resourceId" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="psaConcurExpense">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="billable" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="concurEntryId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="description" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="expenseAmount" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="expenseCountry" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="expenseCurrencyCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="expenseDate" nillable="true" type="xsd:date" />
+          <xsd:element minOccurs="0" name="expenseNonBillableAmount" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="expenseState" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="expenseType" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="expenseVendor" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="govAllowanceAmount" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="incurredTaxAmount" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="incurredTaxNonBillable" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="millage" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="millageReimbursementRate" nillable="true" type="xsd:double" />
+          <xsd:element minOccurs="0" name="nonReimbursible" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="notes" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="numberOfAttendees" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="taxType" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://soap.sforce.com/schemas/class/psaExpenseWSResponse">
+      <xsd:complexType name="psaExpenseWSResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="errorList" nillable="true" type="psaExpenseWSResponse:Error" />
+          <xsd:element minOccurs="0" name="success" nillable="true" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Error">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="concurEntryId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="concurReportKey" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="errorMessage" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://soap.sforce.com/schemas/class/psaExpenseWSFacade">
+      <xsd:import namespace="http://soap.sforce.com/schemas/class/psaExpenseWSResponse" />
+      <xsd:import namespace="http://soap.sforce.com/schemas/class/psaConcurExpenseReport" />
+      <xsd:element name="AllowFieldTruncationHeader">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="allowFieldTruncation" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CallOptions">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="client" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DebuggingHeader">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="categories" type="tns:LogInfo" />
+            <xsd:element name="debugLevel" type="tns:LogType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="LogInfo">
+        <xsd:sequence>
+          <xsd:element name="category" type="tns:LogCategory" />
+          <xsd:element name="level" type="tns:LogCategoryLevel" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="LogCategory">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Db" />
+          <xsd:enumeration value="Workflow" />
+          <xsd:enumeration value="Validation" />
+          <xsd:enumeration value="Callout" />
+          <xsd:enumeration value="Apex_code" />
+          <xsd:enumeration value="Apex_profiling" />
+          <xsd:enumeration value="Visualforce" />
+          <xsd:enumeration value="System" />
+          <xsd:enumeration value="All" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogCategoryLevel">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Internal" />
+          <xsd:enumeration value="Finest" />
+          <xsd:enumeration value="Finer" />
+          <xsd:enumeration value="Fine" />
+          <xsd:enumeration value="Debug" />
+          <xsd:enumeration value="Info" />
+          <xsd:enumeration value="Warn" />
+          <xsd:enumeration value="Error" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="None" />
+          <xsd:enumeration value="Debugonly" />
+          <xsd:enumeration value="Db" />
+          <xsd:enumeration value="Profiling" />
+          <xsd:enumeration value="Callout" />
+          <xsd:enumeration value="Detail" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="DebuggingInfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="debugLog" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SessionHeader">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="sessionId" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:simpleType name="ID">
+        <xsd:restriction base="xsd:string">
+          <xsd:length value="18" />
+          <xsd:pattern value="[a-zA-Z0-9]{18}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="insertExpenses">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="batchId" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="concurExpenseReports" nillable="true" type="psaConcurExpenseReport:psaConcurExpenseReport" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="insertExpensesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="result" nillable="true" type="psaExpenseWSResponse:psaExpenseWSResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name="Header">
+    <part name="AllowFieldTruncationHeader" element="tns:AllowFieldTruncationHeader" />
+    <part name="CallOptions" element="tns:CallOptions" />
+    <part name="DebuggingHeader" element="tns:DebuggingHeader" />
+    <part name="DebuggingInfo" element="tns:DebuggingInfo" />
+    <part name="SessionHeader" element="tns:SessionHeader" />
+  </message>
+  <message name="insertExpensesRequest">
+    <part name="parameters" element="tns:insertExpenses" />
+  </message>
+  <message name="insertExpensesResponse">
+    <part name="parameters" element="tns:insertExpensesResponse" />
+  </message>
+  <portType name="psaExpenseWSFacadePortType">
+    <operation name="insertExpenses">
+      <input message="tns:insertExpensesRequest" />
+      <output message="tns:insertExpensesResponse" />
+    </operation>
+  </portType>
+  <binding name="psaExpenseWSFacadeBinding" type="tns:psaExpenseWSFacadePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="insertExpenses">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:header message="tns:Header" part="DebuggingHeader" use="literal" />
+        <soap:header message="tns:Header" part="AllowFieldTruncationHeader" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </input>
+      <output>
+        <soap:header message="tns:Header" part="DebuggingInfo" use="literal" />
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="psaExpenseWSFacadeService">
+    <documentation>
+    </documentation>
+    <port name="psaExpenseWSFacade" binding="tns:psaExpenseWSFacadeBinding">
+      <soap:address location="https://cs13.salesforce.com/services/Soap/class/psaExpenseWSFacade" />
+    </port>
+  </service>
+</definitions>
