@@ -50,6 +50,9 @@ namespace WindowsFormsApplication1
             myReport.resourceId = "99990";
 
 
+            int i = 0;
+
+
             myExpense.billable = true;
             myExpense.billableSpecified = true;
             myExpense.concurEntryId = "987";
